@@ -3,11 +3,28 @@
  */
 package quotes;
 
+import org.checkerframework.checker.units.qual.A;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+
+class AppTest
+{
     @Test void appHasAGreeting() {
-//        assertNotNull(classUnderTest.getGreeting(), "app App classUnderTest = new App();should have a greeting");
+        App classUnderTest = new App();
+        assertNotNull(classUnderTest.getGreeting(), "app App classUnderTest = new App();should have a greeting");
+    }
+
+    @DisplayName("default test")
+    @Test void testRandomQuote() throws IOException {
+        String path = "C:\\Users\\trega\\codefellows\\401\\java\\quotes\\quotes\\app\\src\\test\\resources\\recentquotes.json";
+        String quote = "Marilyn Monroe: \"I am good, but not an angel. I do sin, but I am not the devil. I am just a " +
+                "small girl in a big world trying to find someone to love.\"";
+        System.out.println("hello");
+        assertEquals(App.randomQuote(path, true), quote, "Error Message: default test");
     }
 }
