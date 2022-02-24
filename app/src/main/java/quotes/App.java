@@ -4,10 +4,12 @@
 package quotes;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.Random;
 
 public class App {
@@ -19,25 +21,30 @@ public class App {
     public static void main(String[] args) throws IOException {
         Quotes newQuote = new Quotes("Mike", "Life is great!");
         System.out.println(newQuote);
+        System.out.println(System.getProperty("java.version"));
         getJsonData();
+
     }
 
     public static void getJsonData() throws IOException {
         Quotes quote = new Quotes("Tom", "Life is great");
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String stringJson = gson.toJson(quote);
         System.out.println(stringJson);
         Random randomNumber = new Random();
         int indexNumber = randomNumber.nextInt(stringJson.length());
-        File quotesJson = new File("./recent-quotes.json");
+        File quotesJson = new File("/Users/joshuamccluskey/projects/courses/401/quotes/app/src/main/resources/recent-quotes.json");
         FileReader jsonFileReader = new FileReader(quotesJson);
+//        Quotes[] arrayQuotes = gson.fromJson(jsonFileReader, Quotes[10].class);
+//        var arrayQuote = arrayQuotes[1];
+//        System.out.println(arrayQuote);
         System.out.println(jsonFileReader);
+        // System.out.println(jsonFileReader);
     }
 
+//    Unicorn[] unicornsFromJsonfile = gson.fromJson(unicornsJsonFileReader, Unicorn[].class);
 
-//    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//    String myUnicorn = gson.toJson(myUnicorn);
-//    File jsonFile = new File("./app/src/main/assets/myUnicorn.json");
+
 //    FileWriter jsonFileWriter = new FileWriter(jsonFile)
 //    jsonFileWriter.write(myUnicorn);
 //    jsonFileWriter.close();
