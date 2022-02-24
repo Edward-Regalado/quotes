@@ -20,7 +20,8 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         getJsonData();
-
+        System.out.println(randomQuote(args[0], true)); // Test with args[0] for command line file path default
+        System.out.println(randomQuote(args[0], false)); // Test with args[0] for random index
 
     }
 
