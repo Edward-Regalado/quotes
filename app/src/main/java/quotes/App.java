@@ -21,12 +21,14 @@ public class App {
     public static void main(String[] args) throws IOException {
         getJsonData();
 
+
     }
 
     public static void getJsonData() throws IOException {
-        String path = "C:\\Users\\trega\\codefellows\\401\\java\\quotes\\quotes\\app\\src\\test\\resources" +
-                "\\recentquotes.json";
+        String path = "/Users/joshuamccluskey/projects/courses/401/quotes/app/src/test/resources/recentquotes.json";
         System.out.println(randomQuote(path, true));
+        System.out.println(randomQuote(path, false));
+        System.out.println(randomQuote(path, false));
     }
 
     public static String randomQuote(String path, Boolean test) throws IOException {
