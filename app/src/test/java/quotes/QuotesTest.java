@@ -17,4 +17,7 @@ class QuotesTest {
        assertEquals("author", quote.author);
        assertEquals("quote body", quote.text);
     }
+
+
+
 }

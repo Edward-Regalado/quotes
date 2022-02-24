@@ -17,33 +17,34 @@ public class App {
     }
 
     public static void main(String[] args) throws IOException {
-        Quotes newQuote = new Quotes("Mike", "Life is great!");
-        System.out.println(newQuote);
+
+        
         getJsonData();
     }
 
     public static void getJsonData() throws IOException {
-        Quotes quote = new Quotes("Tom", "Life is great");
-        Gson gson = new Gson();
-        String stringJson = gson.toJson(quote);
-        System.out.println(stringJson);
-        Random randomNumber = new Random();
-        int indexNumber = randomNumber.nextInt(stringJson.length());
-        File quotesJson = new File("./recent-quotes.json");
-        FileReader jsonFileReader = new FileReader(quotesJson);
-        System.out.println(jsonFileReader);
+        String path = "C:\\Users\\trega\\codefellows\\401\\java\\quotes\\quotes\\app\\src\\test\\resources" +
+                "\\recentquotes.json";
+        System.out.println(randomQuote(path, true));
     }
 
-
-//    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//    String myUnicorn = gson.toJson(myUnicorn);
-//    File jsonFile = new File("./app/src/main/assets/myUnicorn.json");
-//    FileWriter jsonFileWriter = new FileWriter(jsonFile)
-//    jsonFileWriter.write(myUnicorn);
-//    jsonFileWriter.close();
-
-//    FileReader jsonFileReader = new FileReader(jsonFile);`
-//    Unicorn myUnicornJsonfile = gson.fromJson(jsonFileReader, Unicorn.class);`
+    public static String randomQuote(String path, Boolean test) throws IOException {
 
 
+        File file = new File(path); // input file path
+        FileReader readFileLines = new FileReader(file); // read file
+        Gson gson = new Gson(); // create a new gson object- this will be used to convert Java Object to JSON
+        // representation
+
+        Quotes[] json = gson.fromJson(readFileLines, Quotes[].class); // serialize data
+        int index;
+        if (test.equals(true)) { // checking input boolean: this will change our index variable
+            index = 0;
+        } else {
+            index = (int) (Math.random() * json.length);
+        } // get random number for our json array index
+        String author = json[index].author + ": "; // extract author's name at randomly generated index
+        String text = "\"" + json[index].text + "\"" ; // extract text at randomly generated index
+        return author + text; // return author + text in String format
+    }
 }
