@@ -4,10 +4,12 @@
 package quotes;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.Random;
 
 public class App {
@@ -17,9 +19,8 @@ public class App {
     }
 
     public static void main(String[] args) throws IOException {
-
-        
         getJsonData();
+
     }
 
     public static void getJsonData() throws IOException {
@@ -29,13 +30,10 @@ public class App {
     }
 
     public static String randomQuote(String path, Boolean test) throws IOException {
-
-
         File file = new File(path); // input file path
         FileReader readFileLines = new FileReader(file); // read file
         Gson gson = new Gson(); // create a new gson object- this will be used to convert Java Object to JSON
         // representation
-
         Quotes[] json = gson.fromJson(readFileLines, Quotes[].class); // serialize data
         int index;
         if (test.equals(true)) { // checking input boolean: this will change our index variable
