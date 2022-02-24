@@ -35,3 +35,7 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.withType(JavaExec) {
+    jvmArgs += ['--add-opens', 'java.base/jdk.internal.loader=ALL-UNNAMED']
+}
