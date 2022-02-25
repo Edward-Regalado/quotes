@@ -5,11 +5,14 @@ package quotes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.checkerframework.checker.units.qual.A;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.Array;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class App {
@@ -20,8 +23,35 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         getJsonData();
-        System.out.println(randomQuote(args[0], true)); // Test with args[0] for command line file path default
-        System.out.println(randomQuote(args[0], false)); // Test with args[0] for random index
+//        System.out.println(randomQuote(args[0], true)); // Test with args[0] for command line file path default
+//        System.out.println(randomQuote(args[0], false)); // Test with args[0] for random index
+
+        URL apiUrl = new URL("http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en");
+        HttpURLConnection apiUrlConnection = (HttpURLConnection) apiUrl.openConnection();
+        apiUrlConnection.setRequestMethod("GET");
+        InputStreamReader apiReader = new InputStreamReader(apiUrlConnection.getInputStream());
+        BufferedReader apiBufferInput = new BufferedReader(apiReader);
+        String apiData = apiBufferInput.readLine();
+
+        System.out.println(apiData);
+        Gson gsonApi = new GsonBuilder().setPrettyPrinting().create();
+
+
+        ApiQuotes jsonApi = gsonApi.fromJson(apiData, ApiQuotes.class);
+
+        try(BufferedWriter appendQuoteFileWriter= new BufferedWriter(new FileWriter("ourapiquotes.json", true))) {
+            gsonApi.toJson(jsonApi, appendQuoteFileWriter);
+        }
+
+//        FileReader readFileLines = new FileReader("./ourapiquotes.json"); // read file
+
+//        ArrayList<ApiQuotes> savedQuotes = gsonApi.fromJson(readFileLines,() ArrayList.class); // serialize data
+
+
+
+
+
+
 
     }
 
