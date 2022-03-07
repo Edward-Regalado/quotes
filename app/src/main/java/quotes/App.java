@@ -43,23 +43,14 @@ public class App {
             gsonApi.toJson(jsonApi, appendQuoteFileWriter);
         }
 
-//        FileReader readFileLines = new FileReader("./ourapiquotes.json"); // read file
-
-//        ArrayList<ApiQuotes> savedQuotes = gsonApi.fromJson(readFileLines,() ArrayList.class); // serialize data
-
-
-
-
-
-
-
     }
 
     public static void getJsonData() throws IOException {
-        String path = "/Users/joshuamccluskey/projects/courses/401/quotes/app/src/test/resources/recentquotes.json";
-        System.out.println(randomQuote(path, true));
-        System.out.println(randomQuote(path, false));
-        System.out.println(randomQuote(path, false));
+        String path = "app/src/test/resources/recentquotes.json";
+        System.out.println("Random Quote Test: "+randomQuote(path, true));
+        System.out.println("Random Quote 2: "+randomQuote(path, false));
+        System.out.println("Random Quote 3: "+randomQuote(path, false));
+        System.out.println("Random Quote 4: "+randomQuote(path, false));
     }
 
     public static String randomQuote(String path, Boolean test) throws IOException {
