@@ -14,18 +14,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest
 {
-    @Test void appHasAGreeting() {
+    @Test void test_appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app App classUnderTest = new App();should have a greeting");
     }
 
     @DisplayName("default test")
-    @Test void testRandomQuote() throws IOException {
+    @Test void test_RandomQuote() throws IOException {
         App sut= new App();
-        String path = "/Users/joshuamccluskey/projects/courses/401/quotes/app/src/test/resources/recentquotes.json";
+        String path = "../app/src/test/resources/recentquotes.json";
         String quote = "Marilyn Monroe: \"I am good, but not an angel. I do sin, but I am not the devil. I am just a " +
                 "small girl in a big world trying to find someone to love.\"";
         System.out.println("hello");
         assertEquals(sut.randomQuote(path, true), quote, "Error Message: default test");
     }
+
+//    @Test
+//    void test_getJsonData() throws IOException {
+//        App sut = new App();
+//        String path = "./app/src/test/resources/recentquotes.json";
+//        System.out.println(sut.randomQuote("Test Quote: " + path, true));
+//        System.out.println("Random Quote 1: " + sut.randomQuote(path, false));
+//        System.out.println("Random Quote 2: " + sut.randomQuote(path, false));
+//        System.out.println("Random Quote 3: " + sut.randomQuote(path, false));
+//        assertTrue(true,"Something went wrong with test_getJsonData()");
+//    }
+
 }
