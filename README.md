@@ -1,25 +1,28 @@
 # Quotes
 
+### Implementation
+- Build and run app from root quotes/ on IDE or using the following in the command line/ terminal
+- See link and run from the file in IDE [Run App from this file in IDE](app/src/main/java/quotes/App.java)
+- See Random quotes in terminal
+- For testing, run command Line/terminal  : `./gradlew test`
+
+
 ## Resources 
 
-[GSON](https://github.com/google/gson/blob/master/UserGuide.md)
-[recentquotes.json](https://codefellows.github.io/code-401-java-guide/curriculum/class-08/recentquotes.json)
+- [GSON](https://github.com/google/gson/blob/master/UserGuide.md)
+- [recentquotes.json](https://codefellows.github.io/code-401-java-guide/curriculum/class-08/recentquotes.json)
 
 ### Feature Tasks 
 
-- Use the file `recentquotes.json` to show random popular book quotes. 
-- Your program should use GSON to parse the .json file. 
-- The app needs no functionality other than showing the quote and the author when it is run. 
-- The app should choose one quote each time it is run.
+- Using the file `recentquotes.json` to show three random popular book quotes.
+- randomQuote() generates random quotes from`recentquotes.json`see terminal for random quotes
+
 
 #### Testing 
 
-- Use JUnit to write at least one test for each of the Features Tasks.
+For integration testing, run command Line/terminal  : `./gradlew test`
 
-#### Stretch Goals
 
-- Note: if you implement any of these stretch goals, you should also write tests for them
-  - Allow users to type in an author (on the command line) and return a quotes by the author.
-  - Allow users to type in a word (on the command line) and return a quote that contains that word. 
-  - Allow both of those things at the same time, with two different command line args (for example, `./gradlew run 
-     --args` "author Chimamanda" vs `./gradlew run --args "contains work"`)
+### Refactor
+
+- 03.20.2022 Redid README with Implementation Instructions

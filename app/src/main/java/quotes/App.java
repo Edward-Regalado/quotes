@@ -46,7 +46,7 @@ public class App {
     }
 
     public static void getJsonData() throws IOException {
-        String path = "app/src/test/resources/recentquotes.json";
+        String path = "./app/src/test/resources/recentquotes.json";
         System.out.println("Random Quote Test: "+randomQuote(path, true));
         System.out.println("Random Quote 2: "+randomQuote(path, false));
         System.out.println("Random Quote 3: "+randomQuote(path, false));
