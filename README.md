@@ -3,8 +3,10 @@
 ### Implementation
 - Build and run app from root quotes/ on IDE or using the following in the command line/ terminal
 - See link and run from the file in IDE [Run App from this file in IDE](app/src/main/java/quotes/App.java)
-- See Random quotes in terminal
+- See "Api Random Quote  Generated:" in terminal
+- See link for api quotes [ourapiquotes.json](ourapiquotes.json)
 - For testing, run command Line/terminal  : `./gradlew test`
+
 
 
 ## Resources 
@@ -26,3 +28,4 @@ For integration testing, run command Line/terminal  : `./gradlew test`
 ### Refactor
 
 - 03.20.2022 Redid README with Implementation Instructions
+- 03.20.2022 Refactored README for comma to append in ourapiquotes.json; If API is down app pulls from local JSON.
