@@ -18,8 +18,9 @@
 
 - Using the file `recentquotes.json` to show three random popular book quotes.
 - randomQuote() generates random quotes from`recentquotes.json`see terminal for random quotes
-
-
+- getForismaticQuote() gets API quote and saves it to ourapiquotes.json [ourapiquotes.json](ourapiquotes.json)
+- initalQuote() helper function for getForismaticQuote() to create new file
+- getJsonData() call method for random quote Method
 #### Testing 
 
 For integration testing, run command Line/terminal  : `./gradlew test`
@@ -27,5 +28,6 @@ For integration testing, run command Line/terminal  : `./gradlew test`
 
 ### Refactor
 
-- 03.20.2022 Redid README with Implementation Instructions
-- 03.20.2022 Refactored README for comma to append in ourapiquotes.json; If API is down app pulls from local JSON.
+- 03.20.2022 Lab 8 Redid README with Implementation Instructions
+- 03.20.2022 Lab 9 Refactored README for comma to append in ourapiquotes.json; If API is down app pulls from local JSON.
+- Work time 4.5 hours
